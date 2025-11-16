@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Знание Севера - Электронный дневник</title>
+    <style>
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: #2c5aa0;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1e3d6f;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #2c5aa0;
+            border: 2px solid #2c5aa0;
+        }
+
+        .btn-secondary:hover {
+            background: #2c5aa0;
+            color: white;
+        }
+
+        /* Шапка */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo h1 {
+            color: #2c5aa0;
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .logo span {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #34495e;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #2c5aa0;
+        }
+
+        .login-btn {
+            background: #2c5aa0;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #1e3d6f;
+        }
+
+        /* Герой секция */
+        .hero {
+            background: linear-gradient(135deg, #2c5aa0 0%, #3a7bd5 100%);
+            color: white;
+            padding: 120px 0 80px;
+            margin-top: 60px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .placeholder-image {
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* О проекте */
+        .about {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .about h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2c5aa0;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+
+        /* Возможности */
+        .features {
+            padding: 80px 0;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border: 1px solid #e0e0e0;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .feature-card p {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        /* Для кого */
+        .audience {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .audience h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .audience-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .audience-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .audience-card h3 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+        }
+
+        .audience-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Призыв к действию */
+        .cta {
+            background: #2c3e50;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-large {
+            background: #2c5aa0;
+            color: white;
+            padding: 1.2rem 3rem;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-large:hover {
+            background: #1e3d6f;
+            transform: translateY(-2px);
+        }
+
+        /* Подвал */
+        .footer {
+            background: #34495e;
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-info h3 {
+            margin-bottom: 1rem;
+            color: #2c5aa0;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-contacts p {
+            margin-bottom: 0.5rem;
+            color: #bdc3c7;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #4a6278;
+            padding-top: 1.5rem;
+            text-align: center;
+            color: #bdc3c7;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 200px;
+            }
+
+            .hero-text h2 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Анимации */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+<!-- Шапка -->
+<header class="header">
+    <div class="container">
+        <div class="header-content">
+            <div class="logo">
+                <h1>Знание Севера</h1>
+                <span>Электронный дневник</span>
+            </div>
+            <nav class="nav">
+                <a href="#about">О проекте</a>
+                <a href="#features">Возможности</a>
+                <a href="#audience">Для кого</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <!-- ИСПРАВЛЕНО: ведет на login.php -->
+            <a href="login.php" class="login-btn">Войти</a>
+        </div>
+    </div>
+</header>
+
+<!-- Герой секция -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content fade-in">
+            <div class="hero-text">
+                <h2>Электронный дневник "Знание Севера"</h2>
+                <p>Современная платформа для управления учебным процессом. Удобство для учителей, родителей и учеников.</p>
+                <div class="hero-buttons">
+                    <!-- ИСПРАВЛЕНО: ведет на login.php -->
+                    <a href="login.php" class="btn btn-primary">Войти в дневник</a>
+                    <a href="#about" class="btn btn-secondary">Узнать больше</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="placeholder-image">📚</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- О проекте -->
+<section id="about" class="about">
+    <div class="container">
+        <h2 class="fade-in">О нашем дневнике</h2>
+        <div class="about-content fade-in">
+            <div class="about-text">
+                <p><strong>"Знание Севера"</strong> - это современная образовательная платформа, разработанная специально для учебных заведений северных регионов.</p>
+                <p>Мы предоставляем удобный инструмент для отслеживания успеваемости, управления расписанием и коммуникации между всеми участниками образовательного процесса.</p>
+                <p>Наша система обеспечивает безопасный доступ к учебной информации в любое время и с любого устройства.</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">активных пользователей</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">школьных учреждений</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">доступность системы</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Возможности -->
+<section id="features" class="features">
+    <div class="container">
+        <h2 class="fade-in">Возможности дневника</h2>
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <span class="feature-icon">📈</span>
+                <h3>Оценки и успеваемость</h3>
+                <p>Отслеживание текущих оценок и средней успеваемости по всем предметам в реальном времени</p>
+            </div>
+            <div class="feature-card fade-in">
+                <span class="feature-icon">📅</span>
+                <h3>Расписание занятий</h3>
+                <p>Актуальное расписание уроков с учетом изменений и замен. Уведомления о переносах</p>
+            </div>
+            <div class="feature-card fade-in">
+                <span class="feature-icon">📝</span>
+                <h3>Домашние задания</h3>
+                <p>Полная информация о домашних заданиях, сроках сдачи и требованиях к выполнению</p>
+            </div>
+            <div class="feature-card fade-in">
+                <span class="feature-icon">📢</span>
+                <h3>Объявления</h3>
+                <p>Важные объявления от учителей и администрации школы. Ничего не пропустите!</p>
+            </div>
+            <div class="feature-card fade-in">
+                <span class="feature-icon">👨‍👩‍👧‍👦</span>
+                <h3>Родительский контроль</h3>
+                <p>Родители могут отслеживать успехи ребенка и общаться с преподавателями</p>
+            </div>
+            <div class="feature-card fade-in">
+                <span class="feature-icon">📱</span>
+                <h3>Мобильный доступ</h3>
+                <p>Удобный доступ с любого устройства. Работает на компьютерах, планшетах и телефонах</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Для кого -->
+<section id="audience" class="audience">
+    <div class="container">
+        <h2 class="fade-in">Для кого предназначен дневник</h2>
+        <div class="audience-grid">
+            <div class="audience-card fade-in">
+                <div class="audience-icon">🎓</div>
+                <h3>Для учеников</h3>
+                <p>Всегда быть в курсе расписания, домашних заданий и своих оценок</p>
+            </div>
+            <div class="audience-card fade-in">
+                <div class="audience-icon">👨‍🏫</div>
+                <h3>Для учителей</h3>
+                <p>Удобное ведение журнала, выставление оценок и общение с родителями</p>
+            </div>
+            <div class="audience-card fade-in">
+                <div class="audience-icon">👨‍👩‍👧‍👦</div>
+                <h3>Для родителей</h3>
+                <p>Контроль успеваемости ребенка и оперативная связь со школой</p>
+            </div>
+            <div class="audience-card fade-in">
+                <div class="audience-icon">🏫</div>
+                <h3>Для администрации</h3>
+                <p>Управление учебным процессом и аналитика успеваемости</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Призыв к действию -->
+<section class="cta">
+    <div class="container">
+        <div class="cta-content fade-in">
+            <h2>Готовы начать?</h2>
+            <p>Войдите в свой аккаунт чтобы получить доступ ко всем возможностям электронного дневника</p>
+            <!-- ИСПРАВЛЕНО: ведет на login.php -->
+            <a href="login.php" class="btn btn-large">Войти в дневник</a>
+        </div>
+    </div>
+</section>
+
+<!-- Подвал -->
+<footer id="contacts" class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Знание Севера</h3>
+                <p>Электронный дневник для образовательных учреждений северных регионов</p>
+            </div>
+            <div class="footer-links">
+                <a href="#about">О проекте</a>
+                <a href="#features">Возможности</a>
+                <a href="#audience">Для кого</a>
+                <a href="#">Помощь</a>
+            </div>
+            <div class="footer-contacts">
+                <p><strong>Техническая поддержка:</strong></p>
+                <p>support@znanie-severa.ru</p>
+                <p>+7 (XXX) XXX-XX-XX</p>
+                <p>Пн-Пт: 9:00-18:00</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Электронный дневник "Знание Севера". Все права защищены.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Простая анимация появления элементов при скролле
+    document.addEventListener('DOMContentLoaded', function() {
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        fadeElements.forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'all 0.8s ease-out';
+            observer.observe(element);
+        });
+    });
+</script>
+</body>
+</html>
