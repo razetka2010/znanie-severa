@@ -1,6 +1,6 @@
 <div align="center">
 
-# <span style="color: #FF6B6B">✨</span> Рома <span style="color: #4ECDC4">✨</span>
+# <span style="color: #FF6B6B">✨</span> Тема <span style="color: #4ECDC4">✨</span>
 ### <span style="color: #45B7D1">Fullstack</span> • <span style="color: #96CEB4">Developer</span> • <span style="color: #FECA57">Creator</span>
 
 [![Website](https://img.shields.io/badge/🌐_Сайт--визитка-FF6B6B?style=for-the-badge&logo=starship&logoColor=white)](https://razetka2010.github.io/Business-card-website/)
