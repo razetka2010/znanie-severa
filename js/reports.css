@@ -1,0 +1,555 @@
+/* Стили для страницы отчетов */
+
+.content-header {
+    background: white;
+    padding: 25px 30px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.header-title h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.header-title p {
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+.content-body {
+    padding: 30px;
+}
+
+/* Статистика */
+.stats-section {
+    margin-bottom: 40px;
+}
+
+.stats-section h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+    font-size: 40px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 12px;
+    color: white;
+}
+
+.stat-info h3 {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.stat-number {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c3e50;
+    display: block;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.stat-detail {
+    font-size: 12px;
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+/* Загрузка файлов */
+.upload-section {
+    margin-bottom: 40px;
+}
+
+.upload-section h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.upload-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-group input[type="file"] {
+    padding: 12px;
+    border: 2px dashed #e0e0e0;
+    border-radius: 6px;
+    background: #fafafa;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="file"]:hover {
+    border-color: #667eea;
+}
+
+.form-group textarea {
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 14px;
+    resize: vertical;
+    min-height: 80px;
+    font-family: inherit;
+}
+
+.form-hint {
+    display: block;
+    margin-top: 5px;
+    color: #7f8c8d;
+    font-size: 12px;
+}
+
+/* Таблица файлов */
+.files-section {
+    margin-bottom: 40px;
+}
+
+.files-section h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.files-table-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+    overflow: hidden;
+}
+
+.files-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.files-table th {
+    background: #f8f9fa;
+    padding: 15px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #2c3e50;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.files-table td {
+    padding: 15px 12px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+}
+
+.files-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+/* Стили для файлов */
+.file-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.file-icon {
+    font-size: 16px;
+}
+
+.file-type {
+    background: #e7f3ff;
+    color: #0066cc;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.file-description {
+    color: #7f8c8d;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.no-description {
+    color: #bdc3c7;
+    font-style: italic;
+}
+
+.uploader-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.uploader-info small {
+    color: #7f8c8d;
+    font-size: 11px;
+}
+
+.file-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-action {
+    background: none;
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-action:hover {
+    transform: scale(1.1);
+}
+
+.btn-download {
+    background: #e8f5e8;
+    color: #388e3c;
+}
+
+.btn-download:hover {
+    background: #c8e6c9;
+}
+
+.btn-delete {
+    background: #ffebee;
+    color: #d32f2f;
+}
+
+.btn-delete:hover {
+    background: #ffcdd2;
+}
+
+.no-files {
+    text-align: center;
+    padding: 60px 20px;
+    color: #7f8c8d;
+}
+
+.no-files-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+/* Таблица пользователей */
+.users-section {
+    margin-bottom: 40px;
+}
+
+.users-section h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.users-table-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+    overflow: hidden;
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.users-table th {
+    background: #f8f9fa;
+    padding: 12px 10px;
+    text-align: left;
+    font-weight: 600;
+    color: #2c3e50;
+    border-bottom: 2px solid #e0e0e0;
+    white-space: nowrap;
+}
+
+.users-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: top;
+}
+
+.users-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+.user-name strong {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.user-name small {
+    color: #7f8c8d;
+    font-size: 11px;
+}
+
+.user-role {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.role-super_admin {
+    background: #ffebee;
+    color: #d32f2f;
+}
+
+.role-school_admin {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.role-teacher {
+    background: #f3e5f5;
+    color: #7b1fa2;
+}
+
+.role-class_teacher {
+    background: #e8f5e8;
+    color: #388e3c;
+}
+
+.role-student {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-active {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-inactive {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.never-logged {
+    color: #bdc3c7;
+    font-style: italic;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn:hover {
+    background: #5a6fd8;
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    background: #667eea;
+}
+
+.btn-primary:hover {
+    background: #5a6fd8;
+}
+
+/* Алерты */
+.alert {
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .content-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .files-table,
+    .users-table {
+        font-size: 12px;
+    }
+
+    .files-table th,
+    .files-table td,
+    .users-table th,
+    .users-table td {
+        padding: 8px 6px;
+    }
+
+    .file-actions {
+        flex-direction: column;
+    }
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-card,
+.upload-card,
+.files-table-container,
+.users-table-container {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.no-files-message {
+    text-align: center;
+    padding: 60px 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+    color: #7f8c8d;
+}
+
+.no-files-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.no-files-message h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.no-files-message p {
+    font-size: 14px;
+}
+
+/* Улучшенная валидация формы */
+.upload-form input[type="file"]:invalid {
+    border-color: #dc3545;
+}
+
+.upload-form input[type="file"]:valid {
+    border-color: #28a745;
+}
+
+/* Индикатор загрузки */
+.uploading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.uploading::after {
+    content: ' ⏳';
+}
