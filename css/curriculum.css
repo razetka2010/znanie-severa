@@ -1,0 +1,886 @@
+/* Стили для страницы учебных планов */
+
+.curriculum-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.curriculum-header {
+    padding: 25px 30px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+}
+
+.curriculum-header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.curriculum-actions {
+    display: flex;
+    gap: 15px;
+}
+
+/* Фильтры */
+.curriculum-filters {
+    padding: 20px 30px;
+    border-bottom: 1px solid #e0e0e0;
+    background: #fafafa;
+}
+
+.filter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    align-items: end;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-group label {
+    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.filter-group select,
+.filter-group input {
+    padding: 10px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 14px;
+    background: white;
+}
+
+.filter-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Таблица учебных планов */
+.curriculum-table {
+    padding: 0;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.curriculum-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 800px;
+}
+
+.curriculum-data-table th {
+    background: #f8f9fa;
+    padding: 15px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #2c3e50;
+    border-bottom: 2px solid #e0e0e0;
+    white-space: nowrap;
+}
+
+.curriculum-data-table td {
+    padding: 15px 12px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: top;
+}
+
+.curriculum-data-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+/* Название учебного плана */
+.curriculum-name {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.curriculum-description {
+    color: #7f8c8d;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* Классы */
+.curriculum-grades {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.grade-badge {
+    background: #e7f3ff;
+    color: #0066cc;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+/* Предметы */
+.curriculum-subjects {
+    max-width: 300px;
+}
+
+.subject-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.subject-item:last-child {
+    border-bottom: none;
+}
+
+.subject-name {
+    color: #2c3e50;
+    font-size: 13px;
+}
+
+.subject-hours {
+    color: #7f8c8d;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Статус */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-active {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-inactive {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Действия */
+.curriculum-actions-cell {
+    white-space: nowrap;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-action {
+    background: none;
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-action:hover {
+    transform: scale(1.1);
+}
+
+.btn-edit {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.btn-edit:hover {
+    background: #bbdefb;
+}
+
+.btn-view {
+    background: #f3e5f5;
+    color: #7b1fa2;
+}
+
+.btn-view:hover {
+    background: #e1bee7;
+}
+
+.btn-delete {
+    background: #ffebee;
+    color: #d32f2f;
+}
+
+.btn-delete:hover {
+    background: #ffcdd2;
+}
+
+.btn-copy {
+    background: #e8f5e8;
+    color: #388e3c;
+}
+
+.btn-copy:hover {
+    background: #c8e6c9;
+}
+
+/* Форма учебного плана */
+.curriculum-form {
+    padding: 30px;
+}
+
+.form-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.form-section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-group.required label::after {
+    content: " *";
+    color: #dc3545;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+
+/* Выбор классов */
+.grades-selection {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.grade-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.grade-checkbox:hover {
+    border-color: #667eea;
+    background: #f0f4ff;
+}
+
+.grade-checkbox input[type="checkbox"] {
+    margin: 0;
+}
+
+.grade-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+/* Предметы */
+.subjects-container {
+    margin-top: 15px;
+}
+
+.subject-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr auto;
+    gap: 15px;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    background: white;
+}
+
+.subject-input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.hours-input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.btn-remove-subject {
+    background: #ffebee;
+    color: #d32f2f;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.btn-remove-subject:hover {
+    background: #ffcdd2;
+}
+
+.btn-add-subject {
+    background: #e8f5e8;
+    color: #388e3c;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.btn-add-subject:hover {
+    background: #c8e6c9;
+}
+
+/* Действия формы */
+.form-actions {
+    display: flex;
+    gap: 15px;
+    padding-top: 25px;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 30px;
+}
+
+/* Пустое состояние */
+.empty-state {
+    text-align: center;
+    padding: 60px 30px;
+    color: #7f8c8d;
+}
+
+.empty-state-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.empty-state h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.empty-state p {
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+/* Модальные окна */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.modal-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #7f8c8d;
+    padding: 5px;
+}
+
+.btn-close:hover {
+    color: #2c3e50;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Улучшенная адаптивность для телефонов */
+@media (max-width: 768px) {
+    .curriculum-container {
+        margin: 0 -15px;
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+    }
+
+    .curriculum-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .curriculum-actions {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .curriculum-actions .btn {
+        flex: 1;
+        min-width: 120px;
+        text-align: center;
+        font-size: 13px;
+        padding: 10px 12px;
+    }
+
+    .curriculum-filters {
+        padding: 15px 20px;
+    }
+
+    .filter-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .filter-actions {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .filter-actions .btn {
+        flex: 1;
+        min-width: 100px;
+    }
+
+    .curriculum-table {
+        margin: 0 -15px;
+    }
+
+    .curriculum-data-table {
+        font-size: 13px;
+        min-width: 700px;
+    }
+
+    .curriculum-data-table th,
+    .curriculum-data-table td {
+        padding: 12px 8px;
+    }
+
+    .curriculum-name {
+        font-size: 14px;
+    }
+
+    .curriculum-description {
+        font-size: 12px;
+    }
+
+    .curriculum-form {
+        padding: 20px 15px;
+    }
+
+    .form-section {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 14px;
+        font-size: 16px; /* Улучшает UX на iOS */
+    }
+
+    .grades-selection {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 8px;
+    }
+
+    .grade-checkbox {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    .subject-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .subject-input,
+    .hours-input {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .btn-remove-subject {
+        padding: 10px;
+        font-size: 13px;
+        width: 100%;
+    }
+
+    .btn-add-subject {
+        width: 100%;
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+        padding-top: 20px;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .btn-action {
+        padding: 10px;
+        font-size: 12px;
+        width: 100%;
+    }
+
+    .empty-state {
+        padding: 40px 20px;
+    }
+
+    .empty-state-icon {
+        font-size: 36px;
+    }
+
+    .empty-state h3 {
+        font-size: 16px;
+    }
+
+    .empty-state p {
+        font-size: 13px;
+    }
+
+    /* Мобильная версия модальных окон */
+    .modal-overlay {
+        padding: 10px;
+        align-items: flex-end;
+    }
+
+    .modal-content {
+        padding: 20px;
+        border-radius: 12px 12px 0 0;
+        max-height: 85vh;
+    }
+
+    .modal-header {
+        margin-bottom: 15px;
+        padding-bottom: 12px;
+    }
+
+    .modal-header h2 {
+        font-size: 18px;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 20px;
+        padding-top: 15px;
+    }
+
+    .modal-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Дополнительные стили для очень маленьких экранов */
+@media (max-width: 480px) {
+    .curriculum-header h1 {
+        font-size: 20px;
+    }
+
+    .curriculum-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .curriculum-actions .btn {
+        width: 100%;
+    }
+
+    .filter-actions {
+        flex-direction: column;
+    }
+
+    .filter-actions .btn {
+        width: 100%;
+    }
+
+    .curriculum-data-table {
+        font-size: 12px;
+        min-width: 650px;
+    }
+
+    .curriculum-data-table th,
+    .curriculum-data-table td {
+        padding: 10px 6px;
+    }
+
+    .status-badge {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+
+    .grade-badge {
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+
+    .grades-selection {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Горизонтальная ориентация на телефонах */
+@media (max-width: 768px) and (orientation: landscape) {
+    .curriculum-container {
+        min-height: auto;
+    }
+
+    .modal-content {
+        max-height: 75vh;
+    }
+}
+
+/* Специальные стили для iOS */
+@supports (-webkit-touch-callout: none) {
+    .filter-group select,
+    .form-group select {
+        padding: 12px 30px 12px 12px;
+        background-image: url("data:image/svg+xml,...");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 16px;
+    }
+}
+
+/* Улучшения для touch-устройств */
+@media (hover: none) and (pointer: coarse) {
+    .btn-action:hover {
+        transform: none;
+    }
+
+    .stat-card:hover,
+    .action-card:hover {
+        transform: none;
+    }
+
+    .curriculum-data-table tbody tr:hover {
+        background: transparent;
+    }
+}
+
+/* Анимации */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.curriculum-container {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-overlay {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin: 0;
+}
+
+.subject-more {
+    font-size: 12px;
+    color: #7f8c8d;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+.subjects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.subject-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+}
+
+.subject-name {
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.subject-hours {
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+/* Мобильная навигация для таблицы */
+.table-mobile-note {
+    display: none;
+    padding: 10px;
+    background: #fff3cd;
+    color: #856404;
+    font-size: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ffeaa7;
+}
+
+@media (max-width: 768px) {
+    .table-mobile-note {
+        display: block;
+    }
+}
