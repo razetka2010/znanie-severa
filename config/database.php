@@ -1,7 +1,7 @@
 <?php
 function getDatabaseConnection() {
     $host = 'localhost';
-    $dbname = 'school_diary';
+    $dbname = 'if0_40537678_school_diary';
     $username = 'root';
     $password = '';
 
